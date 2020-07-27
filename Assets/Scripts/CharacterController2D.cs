@@ -47,6 +47,7 @@ public class CharacterController2D : MonoBehaviour {
 	bool facingRight = true;
 	bool isGrounded = false;
 	bool isRunning = false;
+	bool _canDoubleJump = false;
 
 	// store the layer the player is on (setup in Awake)
 	int _playerLayer;
@@ -109,17 +110,20 @@ public class CharacterController2D : MonoBehaviour {
 		// whatIsGround layer
 		isGrounded = Physics2D.Linecast(_transform.position, groundCheck.position, whatIsGround);  
 
+		//allow double jump after grounded
+		if(isGrounded) {
+			_canDoubleJump = true;
+		}
+
 		// Set the grounded animation states
 		_animator.SetBool("Grounded", isGrounded);
 
 		if(isGrounded && Input.GetButtonDown("Jump")) // If grounded AND jump button pressed, then allow the player to jump
 		{
-			// reset current vertical motion to 0 prior to jump
-			_vy = 0f;
-			// add a force in the up direction
-			_rigidbody.AddForce (new Vector2 (0, jumpForce));
-			// play the jump sound
-			PlaySound(jumpSFX);
+			DoJump();
+		} else if (_canDoubleJump && Input.GetButtonDown ("Jump")) {
+			DoJump();
+			_canDoubleJump = false;
 		}
 	
 		// If the player stops jumping mid jump and player is not yet falling
@@ -180,6 +184,16 @@ public class CharacterController2D : MonoBehaviour {
 		{
 			this.transform.parent = null;
 		}
+	}
+
+	//make the player jump
+	void DoJump() {
+		// reset current vertical motion to 0 prior to jump
+			_vy = 0f;
+			// add a force in the up direction
+			_rigidbody.AddForce (new Vector2 (0, jumpForce));
+			// play the jump sound
+			PlaySound(jumpSFX);
 	}
 
 	// do what needs to be done to freeze the player
@@ -267,5 +281,9 @@ public class CharacterController2D : MonoBehaviour {
 		_transform.parent = null;
 		_transform.position = spawnloc;
 		_animator.SetTrigger("Respawn");
+	}
+
+	public void EnemyBounce() {
+		DoJump();
 	}
 }
