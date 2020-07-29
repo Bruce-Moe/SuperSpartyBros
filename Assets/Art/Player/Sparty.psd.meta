@@ -43,19 +43,19 @@ TextureImporter:
     second: Sparty_SS_5
   - first:
       213: 21300026
-    second: Sparty_Idle_1
+    second: Sparty_Idle1
   - first:
       213: 21300028
-    second: Sparty_Idle_2
+    second: Sparty_Idle2
   - first:
       213: 21300030
-    second: Sparty_Run_1
+    second: Sparty_Walk1
   - first:
       213: 21300032
-    second: Sparty_Run_2
+    second: Sparty_Walk2
   - first:
       213: 21300034
-    second: Sparty_Run_3
+    second: Sparty_Walk3
   - first:
       213: 21300036
     second: Sparty_Jump
@@ -144,7 +144,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Sparty_Idle_1
+      name: Sparty_Idle1
       rect:
         serializedVersion: 2
         x: 0
@@ -165,7 +165,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sparty_Idle_2
+      name: Sparty_Idle2
       rect:
         serializedVersion: 2
         x: 16
@@ -186,7 +186,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sparty_Run_1
+      name: Sparty_Walk1
       rect:
         serializedVersion: 2
         x: 32
@@ -207,7 +207,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sparty_Run_2
+      name: Sparty_Walk2
       rect:
         serializedVersion: 2
         x: 48
@@ -228,7 +228,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sparty_Run_3
+      name: Sparty_Walk3
       rect:
         serializedVersion: 2
         x: 64
@@ -272,7 +272,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d9e9e50c3894ac54e9968ed60e1776c5
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
